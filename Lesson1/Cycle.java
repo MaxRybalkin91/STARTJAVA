@@ -20,7 +20,7 @@ class Cycle {
             System.out.print("");
         }
         else if(z%2==1) {
-                System.out.println(z);
+            System.out.println(z);
         }
         z++;
         }
