@@ -19,6 +19,9 @@ class Calculator {
             System.out.println("Умножение");
             System.out.println(x + operation + y + "=" + (x * y));
         } else if (operation == '/') {
+            if (y == 0){
+                System.out.println("Деление на ноль невозможно!");
+            }
             double x1 = x;
             double y1 = y;
             System.out.println("Деление");
@@ -32,8 +35,7 @@ class Calculator {
             System.out.println(x + operation + y + "=" + result);
         } else if (operation == '%') {
             System.out.println("Деление по модулю");
-            int result = x%y;
-            System.out.println(x + operation + y + " = " + result);
+            System.out.println(x + operation + y + " = " + x%y);
         }
     }
 }
