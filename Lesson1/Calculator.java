@@ -35,8 +35,6 @@ class Calculator {
                     result *= x;
                 }
             } else if (y < 0) {
-                int x = 5;
-                int y = -2;
                 double x1 = x;
                 double result = x1;
                 for (int i = 0; i >= y; i--) {
