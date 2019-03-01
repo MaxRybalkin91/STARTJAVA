@@ -1,13 +1,13 @@
 class Calculator {
     public static void main(String[] args) {
         int x = 5; //введенное значение
-        int y = 5; //введенное значение
         char operation = '+';
         //char operation = '-'; вариант введенной операции
         //char operation = '*'; вариант введенной операции
         //char operation = '/'; вариант введенной операции
         //char operation = '^'; вариант введенной операции
         //char operation = '%'; вариант введенной операции
+        int y = 5; //введенное значение
 
         if (operation == '+') {
             System.out.println("Сложение");
