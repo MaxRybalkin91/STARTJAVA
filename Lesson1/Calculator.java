@@ -19,8 +19,10 @@ class Calculator {
             System.out.println("Умножение");
             System.out.println(x + "*" + y + "=" + (x * y));
         } else if (operation == '/') {
+            double x1 = x;
+            double y1 = y;
             System.out.println("Деление");
-            System.out.println(x + "/" + y + "=" + (x / y));
+            System.out.println(x + "/" + y + "=" + (x1 / y1));
         } else if (operation == '^') {
             System.out.println("Возведение в степень");
             int result = x;
