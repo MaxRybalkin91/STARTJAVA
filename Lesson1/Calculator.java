@@ -39,7 +39,7 @@ class Calculator {
                 double x1 = x;
                 double result = x1;
                 for (int i = 0; i >= y; i--) {
-                result /= x1;
+                    result /= x1;
                 }
                 System.out.println(result);
             }
