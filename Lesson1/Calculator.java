@@ -31,10 +31,9 @@ class Calculator {
             }
             System.out.println(x + "^" + y + "=" + result);
         } else if (operation == '%') {
-            double x1 = x;
-            double y1 = y;
-            double result = x1*y1/100;
-            System.out.println(y + " процентов от " + x + " = " + result);
+            System.out.println("Деление по модулю");
+            int result = x%y;
+            System.out.println(x + "%" + y + " = " + result);
         }
     }
 }
