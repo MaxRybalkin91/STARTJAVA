@@ -21,11 +21,12 @@ class Calculator {
         } else if (operation == '/') {
             if (y == 0){
                 System.out.println("Деление на ноль невозможно!");
+            } else {
+                double x1 = x;
+                double y1 = y;
+                System.out.println("Деление");
+                System.out.println(x + operation + y + "=" + (x1 / y1));
             }
-            double x1 = x;
-            double y1 = y;
-            System.out.println("Деление");
-            System.out.println(x + operation + y + "=" + (x1 / y1));
         } else if (operation == '^') {
             System.out.println("Возведение в степень");
             if (y >= 0) {
