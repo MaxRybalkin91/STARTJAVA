@@ -11,29 +11,29 @@ class Calculator {
 
         if (operation == '+') {
             System.out.println("Сложение");
-            System.out.println(x + "+" + y + "=" + (x + y));
+            System.out.println(x + operation + y + "=" + (x + y));
         } else if (operation == '-') {
             System.out.println("Вычитание");
-            System.out.println(x + "-" + y + "=" + (x - y));
+            System.out.println(x + operation + y + "=" + (x - y));
         } else if (operation == '*') {
             System.out.println("Умножение");
-            System.out.println(x + "*" + y + "=" + (x * y));
+            System.out.println(x + operation + y + "=" + (x * y));
         } else if (operation == '/') {
             double x1 = x;
             double y1 = y;
             System.out.println("Деление");
-            System.out.println(x + "/" + y + "=" + (x1 / y1));
+            System.out.println(x + operation + y + "=" + (x1 / y1));
         } else if (operation == '^') {
             System.out.println("Возведение в степень");
             int result = x;
             for (int i = 1; i < y; i++) {
                 result *= x;
             }
-            System.out.println(x + "^" + y + "=" + result);
+            System.out.println(x + operation + y + "=" + result);
         } else if (operation == '%') {
             System.out.println("Деление по модулю");
             int result = x%y;
-            System.out.println(x + "%" + y + " = " + result);
+            System.out.println(x + operation + y + " = " + result);
         }
     }
 }
