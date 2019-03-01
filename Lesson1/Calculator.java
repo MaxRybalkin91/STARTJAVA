@@ -28,9 +28,20 @@ class Calculator {
             System.out.println(x + operation + y + "=" + (x1 / y1));
         } else if (operation == '^') {
             System.out.println("Возведение в степень");
-            int result = x;
-            for (int i = 1; i < y; i++) {
-                result *= x;
+            if (y >= 0) {
+                int result = x;
+                for (int i = 1; i < y; i++) {
+                    result *= x;
+                }
+            } else if (y < 0) {
+                int x = 5;
+                int y = -2;
+                double x1 = x;
+                double result = x1;
+                for (int i = 0; i >= y; i--) {
+                result /= x1;
+                }
+                System.out.println(result);
             }
             System.out.println(x + operation + y + "=" + result);
         } else if (operation == '%') {
