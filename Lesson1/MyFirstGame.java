@@ -15,8 +15,7 @@ class MyFirstGame {
                 playerNumber = playerNumber - 5; //якобы изменение числа пользователем
             }
         } while (compNumber != playerNumber);
-        if (playerNumber == compNumber) {
-            System.out.println("Вы угадали!");
+        System.out.println("Вы угадали!");
         }
     }
 }
