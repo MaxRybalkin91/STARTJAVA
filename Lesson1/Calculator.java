@@ -45,7 +45,7 @@ class Calculator {
             System.out.println(x + operation + y + "=" + result);
         } else if (operation == '%') {
             System.out.println("Деление по модулю");
-            System.out.println(x + operation + y + " = " + x%y);
+            System.out.println(x + operation + y + "=" + x % y);
         }
     }
 }
