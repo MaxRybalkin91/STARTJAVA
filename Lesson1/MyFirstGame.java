@@ -8,15 +8,13 @@ class MyFirstGame {
             if (playerNumber < compNumber) {
                 System.out.println("Не угадали!");
                 System.out.println("Введенное вами число меньше того, что загадал компьютер");
-                playerNumber = playerNumber + 6; //якобы изменение числа пользователем
+                playerNumber += 6; //якобы изменение числа пользователем
             } else if (playerNumber > compNumber) {
                 System.out.println("Не угадали!");
                 System.out.println("Введенное вами число больше того, что загадал компьютер");
-                playerNumber = playerNumber - 5; //якобы изменение числа пользователем
+                playerNumber -= 5; //якобы изменение числа пользователем
             }
         } while (compNumber != playerNumber);
         System.out.println("Вы угадали!");
-        }
     }
 }
-

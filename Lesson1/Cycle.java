@@ -16,7 +16,7 @@ class Cycle {
 
         i = 10;
         do {
-            if (i %2 != 0) {
+            if (i % 2 != 0) {
                 System.out.print(i + "\n");
             }
             i++;
