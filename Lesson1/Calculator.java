@@ -40,9 +40,9 @@ class Calculator {
                 for (int i = 0; i >= secondInputNumber; i--) {
                     result /= firstInputNumber1;
                 }
-                System.out.println(result);
+                System.out.println(firstInputNumber + operation + secondInputNumber + "=" + result);
             }
-            System.out.println(firstInputNumber + operation + secondInputNumber + "=" + result);
+
         } else if (operation == '%') {
             System.out.println("Деление по модулю");
             System.out.println(firstInputNumber + operation + secondInputNumber + "=" + firstInputNumber % secondInputNumber);
