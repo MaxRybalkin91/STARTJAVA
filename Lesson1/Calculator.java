@@ -1,6 +1,6 @@
 class Calculator {
     public static void main(String[] args) {
-        int firstInputNumberh = 5; //введенное значение
+        int firstInputNumber = 5; //введенное значение
         char operation = '+';
         //char operation = '-'; вариант введенной операции
         //char operation = '*'; вариант введенной операции
