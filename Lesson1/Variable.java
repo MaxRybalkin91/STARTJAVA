@@ -8,6 +8,7 @@ class Variable {
         double diagonal = 15.6;
         char copyright = 'c';
         boolean goodLapTop = true;
+
         System.out.println(cores);
         System.out.println(ddr);
         System.out.println(ssdGigabytes);
