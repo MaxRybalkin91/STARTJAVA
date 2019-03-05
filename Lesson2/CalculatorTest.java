@@ -1,7 +1,7 @@
 class CalculatorTest {
     public static void main(String[] args) {
-       char yes = 'y';
-       char no = 'n';
+        char yes = 'y';
+        char no = 'n';
 
         Calculator calculator = new Calculator();
         do {
