@@ -38,8 +38,8 @@ class CalculatorTest {
                         calculator.powerminus();
                     }
                     break;
-                    default:
-                        System.out.println("Вы ввели отсутствующую операцию!");
+                default:
+                    System.out.println("Вы ввели отсутствующую операцию!");
             }
 
             do {
