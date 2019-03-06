@@ -30,7 +30,7 @@ class CalculatorTest {
                     calculator.module();
                     break;
                 case '^' :
-                    if (calculator.getFirstNumber() == 0 && calculator.getSecondNumber() == 0) {
+                    if (calculator.getFirstNumber() == 0 & calculator.getSecondNumber() == 0) {
                         System.out.println("Операция 0^0 невозможна!");
                     } else if (calculator.getSecondNumber() > 0) {
                         calculator.powerplus();
