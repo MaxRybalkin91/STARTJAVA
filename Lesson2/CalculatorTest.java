@@ -22,7 +22,6 @@ class CalculatorTest {
                 case '/' :
                     if (calculator.getSecondNumber() == 0) {
                         System.out.println("Деление на ноль невозможно!");
-                        break;
                     } else {
                         calculator.divide();
                     }
@@ -31,12 +30,16 @@ class CalculatorTest {
                     calculator.module();
                     break;
                 case '^' :
-                    if (calculator.getSecondNumber() > 0) {
+                    if (calculator.getFirstNumber() == 0 && calculator.getSecondNumber() == 0) {
+                        System.out.println("Операция 0^0 невозможна!");
+                    } else if (calculator.getSecondNumber() > 0) {
                         calculator.powerplus();
                     } else {
                         calculator.powerminus();
                     }
                     break;
+                    default:
+                        System.out.println("Вы ввели отсутствующую операцию!");
             }
 
             do {

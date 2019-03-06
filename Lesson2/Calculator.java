@@ -8,7 +8,13 @@ class Calculator {
 
     public void setFirstNumber() {
         System.out.println("Введите первое число");
+        while(!input.hasNextInt()) {
+            System.out.println("Вы ввели не число!");
+            System.out.println("Введите первое число");
+            input.next();
+        }
         firstInputNumber = input.nextInt();
+
     }
 
     public int getFirstNumber() {
@@ -26,6 +32,11 @@ class Calculator {
 
     public void setSecondNumber() {
         System.out.println("Введите второе число");
+        while(!input.hasNextInt()) {
+            System.out.println("Вы ввели не число!");
+            System.out.println("Введите второе число");
+            input.next();
+        }
         secondInputNumber = input.nextInt();
     }
 
