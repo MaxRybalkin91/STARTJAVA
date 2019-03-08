@@ -1,99 +1,74 @@
-import java.util.Scanner;
 class Calculator {
-    Scanner input = new Scanner(System.in);
     private int firstInputNumber;
     private char operation;
     private int secondInputNumber;
     private char answer;
 
-    public void runApplication() {
-        System.out.println("Введите первое число");
-        firstInputNumber = input.nextInt();
-        System.out.println("Введите символ математической операции");
-        operation = input.next().charAt(0);
-        System.out.println("Введите второе число");
-        secondInputNumber = input.nextInt();
+    public void setFirstNumber(int firstInputNumber) {
+        this.firstInputNumber = firstInputNumber;
     }
 
-    public int getFirstNumber() {
-        return firstInputNumber;
+    public void setOperation(char operation) {
+        this.operation = operation;
     }
 
-    public char getOperation() {
-        return operation;
+    public void setSecondNumber(int secondInputNumber) {
+        this.secondInputNumber = secondInputNumber;
     }
 
-    public int getSecondNumber() {
-        return secondInputNumber;
+    public String textOfOperation() {
+        String equation = ("" + firstInputNumber + operation + secondInputNumber + "=");
+        return equation;
     }
 
-    public String application() {
-        String application = ("" + firstInputNumber + operation + secondInputNumber + "=");
-        return application;
-    }
-
-    public void plus() {
-        int result = (firstInputNumber + secondInputNumber);
-        System.out.println(application() + result);
-    }
-
-    public void minus() {
-        int result = (firstInputNumber - secondInputNumber);
-        System.out.println(application() + result);
-    }
-
-    public void times() {
-        int result = (firstInputNumber * secondInputNumber);
-        System.out.println(application() + result);
-    }
-
-    public void divide() {
-        double result = ((double) firstInputNumber / secondInputNumber);
-        System.out.println(application() + result);
-    }
-
-    public void noNull() {
-        System.out.println("Некоректный ввод чисел!");
-    }
-
-    public void powerplus() {
-        int result = firstInputNumber;
-        for (int i = 1; i < secondInputNumber; i++) {
-            result *= firstInputNumber;
+    public void chooseOperation() {
+        switch (operation) {
+            case '+':
+                System.out.println(textOfOperation() + (firstInputNumber + secondInputNumber));
+                break;
+            case '-':
+                System.out.println(textOfOperation() + (firstInputNumber - secondInputNumber));
+                break;
+            case '*':
+                System.out.println(textOfOperation() + (firstInputNumber * secondInputNumber));
+                break;
+            case '/':
+                if (secondInputNumber == 0) {
+                    System.out.println("Некоректный ввод чисел!");
+                } else {
+                    System.out.println(textOfOperation() + ((double) firstInputNumber / secondInputNumber));
+                }
+                break;
+            case '%':
+                System.out.println(textOfOperation() + (firstInputNumber % secondInputNumber));
+                break;
+            case '^':
+                if (firstInputNumber == 0 & secondInputNumber == 0) {
+                    System.out.println("Некоректный ввод чисел!");
+                } else if (secondInputNumber > 0) {
+                    int powerPlus = firstInputNumber;
+                    for (int i = 1; i < secondInputNumber; i++) {
+                        powerPlus *= firstInputNumber;
+                    }
+                    System.out.println(textOfOperation() + powerPlus);
+                } else {
+                    double powerMinus = firstInputNumber;
+                    for (int i = 0; i >= secondInputNumber; i--) {
+                        powerMinus /= firstInputNumber;
+                    }
+                    System.out.println(textOfOperation() + powerMinus);
+                }
+                break;
+            default:
+                System.out.println("Вы ввели отсутствующую операцию!");
         }
-        System.out.println(application() + result);
     }
 
-    public void powerminus() {
-        double result = firstInputNumber;
-        for (int i = 0; i >= secondInputNumber; i--) {
-            result /= firstInputNumber;
-        }
-        System.out.println(application() + result);
+    public void setAnswer(char answer){
+        this.answer = answer;
     }
 
-    public void module() {
-        int result = (firstInputNumber % secondInputNumber);
-        System.out.println(application() + result);
-    }
-
-    public void noOperation() {
-        System.out.println("Вы ввели отсутствующую операцию!");
-    }
-
-    public void askAnswer() {
-        System.out.println("Хотите продолжить? y/n");
-    }
-
-    public void setAnswer() {
-        answer = input.next().charAt(0);
-    }
-
-    public char getAnswer() {
+    public char getAnswer () {
         return answer;
-    }
-
-    public void stopApplication() {
-        System.out.println("Работа калькулятора завершена!");
     }
 }

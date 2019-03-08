@@ -1,47 +1,25 @@
+import java.util.Scanner;
 class CalculatorTest {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         Calculator calculator = new Calculator();
 
-        for (; calculator.getAnswer() != 'n' ;) {
-            calculator.runApplication();
+        do {
+            System.out.println("Введите первое число");
+            calculator.setFirstNumber(input.nextInt());
+            System.out.println("Введите символ математической операции");
+            calculator.setOperation(input.next().charAt(0));
+            System.out.println("Введите второе число");
+            calculator.setSecondNumber(input.nextInt());
 
-            switch (calculator.getOperation()) {
-                case '+':
-                    calculator.plus();
-                    break;
-                case '-':
-                    calculator.minus();
-                    break;
-                case '*':
-                    calculator.times();
-                    break;
-                case '/':
-                    if (calculator.getSecondNumber() == 0) {
-                        calculator.noNull();
-                    } else {
-                        calculator.divide();
-                    }
-                    break;
-                case '%':
-                    calculator.module();
-                    break;
-                case '^':
-                    if (calculator.getFirstNumber() == 0 & calculator.getSecondNumber() == 0) {
-                        calculator.noNull();
-                    } else if (calculator.getSecondNumber() > 0) {
-                        calculator.powerplus();
-                    } else {
-                        calculator.powerminus();
-                    }
-                    break;
-                default:
-                    calculator.noOperation();
-            }
-            for (; calculator.getAnswer() != 'n' && calculator.getAnswer() != 'y';) {
-                calculator.askAnswer();
-                calculator.setAnswer();
-            }
-        }
-        calculator.stopApplication();
+            calculator.chooseOperation();
+
+            do{
+                System.out.println("Хотите продолжить? y/n");
+                calculator.setAnswer(input.next().charAt(0));
+            } while (calculator.getAnswer() != 'n' && calculator.getAnswer() != 'y');
+        } while (calculator.getAnswer() != 'n');
+
+        System.out.println("Работа калькулятора завершена");
     }
 }
