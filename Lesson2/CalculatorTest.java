@@ -1,6 +1,8 @@
 import java.util.Scanner;
 class CalculatorTest {
     public static void main(String[] args) {
+        char answer;
+        
         Scanner input = new Scanner(System.in);
         Calculator calculator = new Calculator();
 
@@ -12,13 +14,13 @@ class CalculatorTest {
             System.out.println("Введите второе число");
             calculator.setSecondNumber(input.nextInt());
 
-            calculator.chooseOperation();
+            calculator.checkOperation();
 
-            do{
+            do {
                 System.out.println("Хотите продолжить? y/n");
-                calculator.setAnswer(input.next().charAt(0));
-            } while (calculator.getAnswer() != 'n' && calculator.getAnswer() != 'y');
-        } while (calculator.getAnswer() != 'n');
+                answer = input.next().charAt(0);
+            } while (answer != 'n' && answer != 'y');
+        } while (answer != 'n');
 
         System.out.println("Работа калькулятора завершена");
     }
