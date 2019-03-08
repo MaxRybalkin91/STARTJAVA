@@ -14,7 +14,7 @@ class CalculatorTest {
             System.out.println("Введите второе число");
             calculator.setSecondNumber(input.nextInt());
 
-            calculator.checkOperation();
+            calculator.calculate();
 
             do {
                 System.out.println("Хотите продолжить? y/n");
