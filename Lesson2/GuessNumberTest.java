@@ -12,11 +12,12 @@ public class GuessNumberTest {
         Player player2 = new Player(input.nextLine());
 
         do {
+            System.out.println("Компьютер загадал число в диапазоне 0-100. Попробуйте его угадать!");
             GuessNumber computer = new GuessNumber();
             computer.playGame(player1, player2);
 
             do {
-                System.out.println("Хотите продолжить? y/n");
+                System.out.println("Хотите повторить? y/n");
                 answer = input.next().charAt(0);
             } while (answer != 'n' && answer != 'y');
         } while (answer != 'n');
