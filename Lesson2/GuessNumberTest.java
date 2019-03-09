@@ -13,31 +13,12 @@ public class GuessNumberTest {
 
         do {
             GuessNumber computer = new GuessNumber();
-
-            do {
-                player1.enterNumber();
-                player1.setInputNumber(input.nextInt());
-                if (player1.getInputNumber() < computer.getRandomNumber()) {
-                    player1.increaseNumber();
-                } else {
-                    player1.reduceNumber();
-                }
-
-                player2.enterNumber();
-                player2.setInputNumber(input.nextInt());
-                if (player2.getInputNumber() < computer.getRandomNumber()) {
-                    player2.increaseNumber();
-                } else {
-                    player2.reduceNumber();
-                }
-            } while (player1.getInputNumber() != computer.getRandomNumber() && player2.getInputNumber() != computer.getRandomNumber());
-
-            System.out.println("Число угадано!");
+            computer.playGame(player1, player2);
 
             do {
                 System.out.println("Хотите продолжить? y/n");
                 answer = input.next().charAt(0);
-            } while (answer != 'y' && answer != 'n');
+            } while (answer != 'n' && answer != 'y');
         } while (answer != 'n');
     }
 }

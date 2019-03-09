@@ -1,28 +1,20 @@
 class Player {
-    public String name;
-    public int inputNumber;
+    private String name;
+    private int number;
 
     public Player(String name) {
         this.name = name;
     }
 
-    public void setInputNumber(int inputNumber) {
-        this.inputNumber = inputNumber;
+    public String getName() {
+        return name;
     }
 
-    public int getInputNumber() {
-        return inputNumber;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
-    public void enterNumber() {
-        System.out.println(name + " , введите ваш вариант");
-    }
-
-    public void increaseNumber() {
-        System.out.println(name + " , вы не угадали! Введенное число меньше задуманного!");
-    }
-
-    public void reduceNumber() {
-        System.out.println(name + " , вы не угадали! Введенное число больше задуманного!");
+    public int getNumber() {
+        return number;
     }
 }
