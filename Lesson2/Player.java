@@ -4,6 +4,7 @@ class Player {
 
     Player(String name) {
         this.name = name;
+        this.number = -1;
     }
 
     public String getName() {

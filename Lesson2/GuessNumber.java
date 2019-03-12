@@ -4,44 +4,39 @@ class GuessNumber {
 
     private int randomNumber;
 
-    public GuessNumber() {
-        System.out.println("Введите имя первого игрока");
-        Player player1 = new Player(input.nextLine());
+    private Player player1;
+    private Player player2;
+    private int inputNumber;
 
-        System.out.println("Введите имя второго игрока");
-        Player player2 = new Player(input.nextLine());
-
+    public GuessNumber(Player player1, Player player2, int number) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.inputNumber = number;
         randomNumber = (int) (Math.random() * 100);
-        System.out.println("Компьютер загадал число в диапазоне 0-100. Попробуйте его угадать!");
-
-        logicOfGame(player1, player2);
     }
 
-    public void logicOfGame(Player player1, Player player2) {
+    public void logicOfGame() {
         do {
             System.out.println(player1.getName() + " , введите ваш ответ");
             player1.setNumber(input.nextInt());
-
-            if (player1.getNumber() < randomNumber) {
-                System.out.println(player1.getName() + " , неверно! Введенное число меньше загаданного");
-            } else if (player1.getNumber() > randomNumber) {
-                System.out.println(player1.getName() + " , неверно! Введенное число больше загаданного");
-            } else {
-                System.out.println(player1.getName() + " , вы угадали");
+            validateNumber(player1);
+            if (player1.getNumber() == randomNumber) {
+                break;
             }
 
             System.out.println(player2.getName() + " , введите ваш ответ");
             player2.setNumber(input.nextInt());
+            validateNumber(player2);
+        } while (player2.getNumber() != randomNumber);
+    }
 
-            if (player2.getNumber() < randomNumber) {
-                System.out.println(player2.getName() + " , неверно! Введенное число меньше загаданного");
-            } else if (player2.getNumber() > randomNumber) {
-                System.out.println(player2.getName() + " , неверно! Введенное число больше загаданного");
-            } else {
-                System.out.println(player2.getName() + " , вы угадали");
-            }
-        } while (player1.getNumber() != randomNumber && player2.getNumber() != randomNumber);
+    public void validateNumber (Player player) {
+        if (player.getNumber() < randomNumber) {
+            System.out.println(player.getName() + " , неверно! Введенное число меньше загаданного");
+        } else if (player.getNumber() > randomNumber) {
+            System.out.println(player.getName() + " , неверно! Введенное число больше загаданного");
+        } else {
+            System.out.println(player.getName() + " , вы угадали");
+        }
     }
 }
-
-
