@@ -6,13 +6,11 @@ class GuessNumber {
 
     private Player player1;
     private Player player2;
-    private int inputNumber;
 
     public GuessNumber(Player player1, Player player2, int number) {
         this.player1 = player1;
         this.player2 = player2;
-        this.inputNumber = number;
-        randomNumber = (int) (Math.random() * 100);
+        randomNumber = number;
     }
 
     public void logicOfGame() {

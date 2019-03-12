@@ -6,15 +6,15 @@ public class GuessNumberTest {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Введите имя первого игрока");
-        Player player1 = new Player(input.nextLine());
+        Player player1 = new Player(input.nextLine(), 1);
 
         System.out.println("Введите имя второго игрока");
-        Player player2 = new Player(input.nextLine());
+        Player player2 = new Player(input.nextLine(), 2);
 
         do {
             System.out.println("Компьютер загадал число в диапазоне 0-100. Попробуйте его угадать!");
 
-            GuessNumber computer = new GuessNumber(player1, player2, -1);
+            GuessNumber computer = new GuessNumber(player1, player2, (int) (Math.random() * 100));
 
             computer.logicOfGame();
 
