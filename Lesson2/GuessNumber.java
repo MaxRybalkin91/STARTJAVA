@@ -11,7 +11,7 @@ class GuessNumber {
         randomNumber = number;
     }
 
-    public void startTheGame() {
+    public void startGame() {
         do {
             System.out.println(player1.getName() + " , введите ваш ответ:");
             player1.setNumber(input.nextInt());

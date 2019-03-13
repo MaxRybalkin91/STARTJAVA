@@ -13,8 +13,8 @@ public class GuessNumberTest {
         do {
             System.out.println("Компьютер загадал число в диапазоне 0-100. Попробуйте его угадать!");
 
-            GuessNumber computer = new GuessNumber(player1, player2, (int) (Math.random() * 101));
-            computer.startTheGame();
+            GuessNumber guessNumber = new GuessNumber(player1, player2, (int) (Math.random() * 101));
+            guessNumber.startGame();
 
             do {
                 System.out.println("Хотите повторить? y/n");
