@@ -1,9 +1,7 @@
 import java.util.Scanner;
 class GuessNumber {
     Scanner input = new Scanner(System.in);
-
     private int randomNumber;
-
     private Player player1;
     private Player player2;
 
@@ -13,28 +11,33 @@ class GuessNumber {
         randomNumber = number;
     }
 
-    public void logicOfGame() {
+    public void startTheGame() {
         do {
-            System.out.println(player1.getName() + " , введите ваш ответ");
+            System.out.println(player1.getName() + " , введите ваш ответ:");
             player1.setNumber(input.nextInt());
             validateNumber(player1);
             if (player1.getNumber() == randomNumber) {
                 break;
             }
 
-            System.out.println(player2.getName() + " , введите ваш ответ");
+            System.out.println(player2.getName() + " , введите ваш ответ:");
             player2.setNumber(input.nextInt());
             validateNumber(player2);
         } while (player2.getNumber() != randomNumber);
     }
 
-    public void validateNumber (Player player) {
+    private void validateNumber(Player player) {
+        while (player.getNumber() < 0 || player.getNumber() > 100) {
+            System.out.println(player.getName() + " , ошибка! Необходимо ввести число в диапазоне 0-100!");
+            player.setNumber(input.nextInt());
+        }
+
         if (player.getNumber() < randomNumber) {
-            System.out.println(player.getName() + " , неверно! Введенное число меньше загаданного");
+            System.out.println(player.getName() + " , неверно! Введенное число меньше загаданного!");
         } else if (player.getNumber() > randomNumber) {
-            System.out.println(player.getName() + " , неверно! Введенное число больше загаданного");
+            System.out.println(player.getName() + " , неверно! Введенное число больше загаданного!");
         } else {
-            System.out.println(player.getName() + " , вы угадали");
+            System.out.println(player.getName() + " , вы угадали!");
         }
     }
 }
