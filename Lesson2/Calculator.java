@@ -15,7 +15,7 @@ class Calculator {
         this.secondInputNumber = secondInputNumber;
     }
 
-    public void calculate() {
+    public void checkOperation() {
         switch (operation) {
             case '+':
                 System.out.println(printEquation() + (firstInputNumber + secondInputNumber));

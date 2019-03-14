@@ -1,8 +1,10 @@
 import java.util.Scanner;
+
 class CalculatorTest {
+
     public static void main(String[] args) {
         char answer;
-        
+
         Scanner input = new Scanner(System.in);
         Calculator calculator = new Calculator();
 
@@ -14,7 +16,7 @@ class CalculatorTest {
             System.out.println("Введите второе число");
             calculator.setSecondNumber(input.nextInt());
 
-            calculator.calculate();
+            calculator.checkOperation();
 
             do {
                 System.out.println("Хотите продолжить? y/n");
