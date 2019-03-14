@@ -1,6 +1,4 @@
-import java.util.Scanner;
 class Jaeger {
-    Scanner input = new Scanner(System.in);
     private String modelName;
     private String mark;
     private String origin;
@@ -16,68 +14,34 @@ class Jaeger {
         this.origin = origin;
     }
 
-    private void setHeight(double height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    private void setWeight(double weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    private void setSpeed(int speed) {
+    public void setSpeed(int speed) {
         this.speed = speed;
     }
 
-    private void setStrength(int strength) {
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 
-    private void setArmor(int armor) {
+    public void setArmor(int armor) {
         this.armor = armor;
     }
 
-    private double getHeight() {
-        return height;
+    public String getModelName() {
+        return modelName;
     }
 
-    private double getWeight() {
-        return weight;
+    public String toString() {
+        return "Name of Jaeger is " + modelName + "\n" + "Version of " + modelName + " is " + mark + "\n" +
+        modelName + " created in " + origin + "\n" + "His height is " + height + " tons" + "\n" +
+        "His weight is " + weight + " ft" + "\n" + "His speed is " + speed + " mph" + "\n" +
+        "His strength is " + strength + " kN" + "\n" + "His armor level is " + armor + "\n";
     }
-
-    private int getSpeed() {
-        return speed;
-    }
-
-    private int getStrength() {
-        return strength;
-    }
-
-    private int getArmor() {
-        return armor;
-    }
-
-    public void setParametres(Jaeger jaeger) {
-        System.out.println("Enter the height of " + jaeger.modelName);
-        jaeger.setHeight(input.nextInt());
-        System.out.println("Enter the weight of " + jaeger.modelName);
-        jaeger.setWeight(input.nextInt());
-        System.out.println("Enter the speed of " + jaeger.modelName);
-        jaeger.setSpeed(input.nextInt());
-        System.out.println("Enter the strength of " + jaeger.modelName);
-        jaeger.setStrength(input.nextInt());
-        System.out.println("Enter the armor of " + jaeger.modelName);
-        jaeger.setArmor(input.nextInt());
-    }
-
-    public void printInfo(Jaeger jaeger) {
-        System.out.println("Name of Jaeger is " + jaeger.modelName);
-        System.out.println("Version of " + modelName + " is " + jaeger.mark);
-        System.out.println(jaeger.modelName + " created in " + jaeger.origin);
-        System.out.println("His height is " + jaeger.getHeight() + " tons");
-        System.out.println("His weight is " + jaeger.getWeight() + " ft");
-        System.out.println("His speed is " + jaeger.getSpeed() + " mph");
-        System.out.println("His strength is " + jaeger.getStrength() + " kN");
-        System.out.println("His armor level is " + jaeger.getArmor() + "\n");
-    }
-
 }
