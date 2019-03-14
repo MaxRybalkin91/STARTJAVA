@@ -1,3 +1,5 @@
+package com.lesson_2_3;
+
 class WolfTest {
 
     public static void main(String[] args) {

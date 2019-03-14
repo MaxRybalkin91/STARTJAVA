@@ -1,3 +1,5 @@
+package com.lesson_2_3;
+
 class Wolf {
     private char gender;
     private String name;

@@ -1,3 +1,5 @@
+package com.lesson_2_3.game;
+
 class Player {
     private String name;
     private int number;

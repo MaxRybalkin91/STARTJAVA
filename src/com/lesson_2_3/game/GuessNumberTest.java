@@ -1,7 +1,7 @@
+package com.lesson_2_3.game;
+
 import java.util.Scanner;
-
 public class GuessNumberTest {
-
     public static void main(String[] args) {
         char answer;
         Scanner input = new Scanner(System.in);

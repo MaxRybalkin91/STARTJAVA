@@ -1,3 +1,5 @@
+package com.lesson_2_3.calculator;
+
 class Calculator {
     private int firstInputNumber;
     private char operation;
@@ -15,7 +17,7 @@ class Calculator {
         this.secondInputNumber = secondInputNumber;
     }
 
-    public void checkOperation() {
+    public void calculate() {
         switch (operation) {
             case '+':
                 System.out.println(printEquation() + (firstInputNumber + secondInputNumber));

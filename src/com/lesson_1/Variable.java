@@ -1,3 +1,5 @@
+package com.lesson_1;
+
 class Variable {
     public static void main(String[] args) {
         byte cores = 4;

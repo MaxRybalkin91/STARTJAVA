@@ -1,3 +1,5 @@
+package com.lesson_2_3;
+
 class Person {
     private char gender = 'M';
     private String name = "Maksim";

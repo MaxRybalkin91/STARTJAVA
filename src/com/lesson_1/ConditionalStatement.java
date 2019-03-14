@@ -1,3 +1,5 @@
+package com.lesson_1;
+
 class ConditionalStatement {
     public static void main(String[] args) {
         int age = 27;

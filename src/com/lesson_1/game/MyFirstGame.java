@@ -1,3 +1,5 @@
+package com.lesson_1.game;
+
 class MyFirstGame {
     public static void main(String[] args) {
         System.out.println("Компьютер загадал число в диапазоне 0-100. Попробуй его отгадать!");

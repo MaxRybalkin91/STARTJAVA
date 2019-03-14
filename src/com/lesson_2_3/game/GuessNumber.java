@@ -1,5 +1,6 @@
-import java.util.Scanner;
+package com.lesson_2_3.game;
 
+import java.util.Scanner;
 class GuessNumber {
     Scanner input = new Scanner(System.in);
     private int randomNumber;
@@ -28,20 +29,17 @@ class GuessNumber {
     }
 
     private void validateNumber(Player player) {
-        validateRangeOfNumbers(player);
+        while (player.getNumber() < 0 || player.getNumber() > 100) {
+            System.out.println(player.getName() + " , ошибка! Необходимо ввести число в диапазоне 0-100!");
+            player.setNumber(input.nextInt());
+        }
+
         if (player.getNumber() < randomNumber) {
             System.out.println(player.getName() + " , неверно! Введенное число меньше загаданного!");
         } else if (player.getNumber() > randomNumber) {
             System.out.println(player.getName() + " , неверно! Введенное число больше загаданного!");
         } else {
             System.out.println(player.getName() + " , вы угадали!");
-        }
-    }
-
-    private void validateRangeOfNumbers(Player player) {
-        while (player.getNumber() < 0 || player.getNumber() > 100) {
-            System.out.println(player.getName() + " , ошибка! Необходимо ввести число в диапазоне 0-100!");
-            player.setNumber(input.nextInt());
         }
     }
 }

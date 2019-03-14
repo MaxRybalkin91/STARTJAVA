@@ -1,7 +1,7 @@
+package com.lesson_2_3.robot;
+
 import java.util.Scanner;
-
 class JaegerTest {
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 

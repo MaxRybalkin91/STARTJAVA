@@ -1,3 +1,5 @@
+package com.lesson_1.calculator;
+
 class Calculator {
     public static void main(String[] args) {
         int firstInputNumber = 5;
@@ -23,7 +25,7 @@ class Calculator {
                 System.out.println("Деление на ноль невозможно!");
             } else {
                 System.out.println("Деление");
-                System.out.println("" + firstInputNumber + operation + secondInputNumber + "=" + ((double) firstInputNumber / secondInputNumber1));
+                System.out.println("" + firstInputNumber + operation + secondInputNumber + "=" + ((double) firstInputNumber / secondInputNumber));
             }
         } else if (operation == '^') {
             System.out.println("Возведение в степень");
