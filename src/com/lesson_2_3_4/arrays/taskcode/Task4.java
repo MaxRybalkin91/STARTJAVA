@@ -24,17 +24,27 @@ public class Task4 {
         }
 
         int min1 = numbers[0];
-        int min2 = numbers[1];
+        int min2 = numbers[0];
+        boolean find = false;
+        boolean flag = true;
 
-        for(int i = 0; i != numbers.length; i ++){
-            if(numbers[i] < min1){
-                min1 = numbers[i];
+        while(flag) {
+            for(int i = 0; i < numbers.length; i++) {
+                if (numbers[i] < min1) {
+                    find = true;
+                    min2 = min1;
+                    min1 = numbers[i];
+                } else if (numbers[i] < min2) {
+                    find = true;
+                    min2 = numbers[i];
+                }
             }
-        }
 
-        for(int i = 1; i != numbers.length; i ++){
-            if(numbers[i] < min2 & numbers[i] != min1){
-                min2 = numbers[i];
+            if(find) {
+                flag = false;
+            } else {
+                min1 = numbers[1];
+                min2 = numbers[1];
             }
         }
 
