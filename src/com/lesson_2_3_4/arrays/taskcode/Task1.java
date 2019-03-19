@@ -19,13 +19,13 @@ public class Task1 {
         int[] numbers = new int[x];
         int sum = 0;
 
-        for(int i = 0; i != numbers.length; i++) {
+        for(int i = 0; i < numbers.length; i++) {
             System.out.println("Введите число №" + (i+1));
             numbers[i] = input.nextInt();
         }
 
         for(int i = 0; i != numbers.length; i++) {
-            if (numbers[i] > 0 & (numbers[i] % 2) == 0) {
+            if(numbers[i] > 0 & (numbers[i] % 2) == 0) {
                 sum += numbers[i];
             }
         }
