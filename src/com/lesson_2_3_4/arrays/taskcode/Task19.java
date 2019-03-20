@@ -39,7 +39,7 @@ public class Task19 {
         }
         System.out.println("Номера четных элементов массива: ");
         for(int i = 0; i < j; i++) {
-            System.out.print(even[i+1] + " ");
+            System.out.print((even[i]+1) + " ");
         }
     }
 }
