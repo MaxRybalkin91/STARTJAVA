@@ -16,16 +16,18 @@ public class Task2 {
         int x = input.nextInt();
 
         int[] numbers = new int[x];
-        int max = numbers[0];
 
         for(int i = 0; i != numbers.length; i++) {
             System.out.println("Введите число №" + (i+1));
             numbers[i] = input.nextInt();
         }
 
-        for(int i = 0; i != numbers.length & (i % 2) == 0; i++) {
-            max = Math.max(max, numbers[i]);
+        int max = 0;
+        for(int i=2; i < x; i += 2) {
+            if (numbers[i] > numbers[max]) {
+                max = i;
+            }
         }
-        System.out.println("Максимальное число = " + max);
+        System.out.println("В четном индексе " + (max) + " содержится максимальное число " + numbers[max]);
     }
 }
