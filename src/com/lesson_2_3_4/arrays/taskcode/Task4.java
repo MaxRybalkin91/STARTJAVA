@@ -18,7 +18,7 @@ public class Task4 {
 
         int[] numbers = new int[x];
 
-        for(int i = 0; i != numbers.length; i++) {
+        for(int i = 0; i < x; i++) {
             System.out.println("Введите число №" + (i+1));
             numbers[i] = input.nextInt();
         }
@@ -29,8 +29,8 @@ public class Task4 {
         boolean flag = true;
 
         while(flag) {
-            for(int i = 0; i < numbers.length; i++) {
-                if (numbers[i] < min1) {
+            for(int i = 0; i < x; i++) {
+                if(numbers[i] < min1) {
                     find = true;
                     min2 = min1;
                     min1 = numbers[i];
