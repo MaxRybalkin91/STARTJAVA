@@ -18,18 +18,18 @@ public class Task3 {
 
         int[] numbers = new int[x];
 
-        for(int i = 0; i != numbers.length; i++) {
+        for(int i = 0; i < x; i++) {
             System.out.println("Введите число №" + (i+1));
             numbers[i] = input.nextInt();
         }
 
         double sum = 0;
-        for(int i = 0; i != numbers.length; i++) {
+        for(int i = 0; i < x; i++) {
             sum += numbers[i];
         }
 
-        double average = sum / numbers.length;
-        for(int i = 0; i != numbers.length; i++) {
+        double average = (sum / x);
+        for(int i = 0; i < x; i++) {
             if(numbers[i] < average) {
                 System.out.println(numbers[i]);
             }
