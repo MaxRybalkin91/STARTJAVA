@@ -29,8 +29,8 @@ public class Task5 {
         int i = 0;
         int m = n;
 
-        while (i < m) {
-            if (numbers[i] <= b && numbers[i] >= a) {
+        while(i < m) {
+            if(numbers[i] <= b && numbers[i] >= a) {
                 m -= 1;
                 for(int j = i; j != m; j++) {
                     numbers[j] = numbers[j + 1];
