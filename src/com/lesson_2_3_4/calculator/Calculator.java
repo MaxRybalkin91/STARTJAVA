@@ -4,6 +4,8 @@ class Calculator {
     private int firstInputNumber;
     private char operation;
     private int secondInputNumber;
+    private double result;
+    private boolean needCalculate = true;
 
     public void setFirstNumber(int firstInputNumber) {
         this.firstInputNumber = firstInputNumber;
@@ -20,47 +22,45 @@ class Calculator {
     public void calculate() {
         switch (operation) {
             case '+':
-                System.out.println(printEquation() + (firstInputNumber + secondInputNumber));
+                result = Math.addExact(firstInputNumber , secondInputNumber);
                 break;
             case '-':
-                System.out.println(printEquation() + (firstInputNumber - secondInputNumber));
+                result = Math.subtractExact(firstInputNumber, secondInputNumber);
                 break;
             case '*':
-                System.out.println(printEquation() + (firstInputNumber * secondInputNumber));
+                result = Math.multiplyExact(firstInputNumber, secondInputNumber);
                 break;
             case '/':
                 if (secondInputNumber == 0) {
                     System.out.println("На ноль делить нельзя!");
+                    needCalculate = false;
                 } else {
-                    System.out.println(printEquation() + ((double) firstInputNumber / secondInputNumber));
+                    result = (firstInputNumber / secondInputNumber);
                 }
                 break;
             case '%':
-                System.out.println(printEquation() + (firstInputNumber % secondInputNumber));
+                result = Math.IEEEremainder(firstInputNumber, secondInputNumber);
                 break;
             case '^':
                 if (firstInputNumber == 0 & secondInputNumber == 0) {
                     System.out.println("Некоректный ввод чисел!");
-                } else if (secondInputNumber > 0) {
-                    int powerPlus = firstInputNumber;
-                    for (int i = 1; i < secondInputNumber; i++) {
-                        powerPlus *= firstInputNumber;
-                    }
-                    System.out.println(printEquation() + powerPlus);
+                    needCalculate = false;
                 } else {
-                    double powerMinus = firstInputNumber;
-                    for (int i = 0; i >= secondInputNumber; i--) {
-                        powerMinus /= firstInputNumber;
-                    }
-                    System.out.println(printEquation() + powerMinus);
+                    result = Math.pow(firstInputNumber, secondInputNumber);
                 }
                 break;
             default:
                 System.out.println("Вы ввели отсутствующую операцию!");
+                needCalculate = false;
         }
-    }
 
-    private String printEquation() {
-        return firstInputNumber + " " + operation + " " + secondInputNumber + " = ";
+        if(needCalculate) {
+            String equation = (firstInputNumber + " "  + operation + " " + secondInputNumber + " " + "=" + " " + result);
+            String[] printEquation = equation.split(" ");
+            for(int i = 0; i<printEquation.length; i++) {
+                System.out.print(printEquation[i]);
+            }
+            System.out.println();
+        }
     }
 }
