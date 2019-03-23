@@ -1,66 +1,57 @@
 package com.lesson_2_3_4.calculator;
 
+import java.util.Scanner;
+
 class Calculator {
-    private int firstInputNumber;
-    private char operation;
-    private int secondInputNumber;
-    private double result;
-    private boolean needCalculate = true;
+    Scanner scan = new Scanner(System.in) ;
 
-    public void setFirstNumber(int firstInputNumber) {
-        this.firstInputNumber = firstInputNumber;
-    }
-
-    public void setOperation(char operation) {
-        this.operation = operation;
-    }
-
-    public void setSecondNumber(int secondInputNumber) {
-        this.secondInputNumber = secondInputNumber;
-    }
+    private double result = 0;
+    private String ans;
+    private String calculation;
 
     public void calculate() {
+        calculation = scan.nextLine();
+        String[] parts = calculation.split("");
+        int firstNumber = Integer.parseInt(parts[0]);
+        String operation = parts[1];
+        int secondNumber = Integer.parseInt(parts[2]);
+
         switch (operation) {
-            case '+':
-                result = Math.addExact(firstInputNumber , secondInputNumber);
+            case "+":
+                result = Math.addExact(firstNumber, secondNumber);
+                print();
                 break;
-            case '-':
-                result = Math.subtractExact(firstInputNumber, secondInputNumber);
+            case "-":
+                result = Math.subtractExact(firstNumber, secondNumber);
+                print();
                 break;
-            case '*':
-                result = Math.multiplyExact(firstInputNumber, secondInputNumber);
+            case "*":
+                result = Math.multiplyExact(firstNumber, secondNumber);
+                print();
                 break;
-            case '/':
-                if (secondInputNumber == 0) {
+            case "/":
+                if (secondNumber == 0) {
                     System.out.println("На ноль делить нельзя!");
-                    needCalculate = false;
                 } else {
-                    result = (firstInputNumber / secondInputNumber);
+                    result = (firstNumber / secondNumber);
+                    print();
                 }
                 break;
-            case '%':
-                result = Math.IEEEremainder(firstInputNumber, secondInputNumber);
+            case "%":
+                result = Math.IEEEremainder(firstNumber, secondNumber);
+                print();
                 break;
-            case '^':
-                if (firstInputNumber == 0 & secondInputNumber == 0) {
-                    System.out.println("Некоректный ввод чисел!");
-                    needCalculate = false;
-                } else {
-                    result = Math.pow(firstInputNumber, secondInputNumber);
-                }
+            case "^":
+                result = Math.pow(firstNumber, secondNumber);
+                print();
                 break;
             default:
                 System.out.println("Вы ввели отсутствующую операцию!");
-                needCalculate = false;
         }
+    }
 
-        if(needCalculate) {
-            String equation = (firstInputNumber + " "  + operation + " " + secondInputNumber + " " + "=" + " " + result);
-            String[] printEquation = equation.split(" ");
-            for(int i = 0; i<printEquation.length; i++) {
-                System.out.print(printEquation[i]);
-            }
-            System.out.println();
-        }
+    private void print() {
+        ans = String.valueOf(result);
+        System.out.print(calculation + "=" + ans);
     }
 }
