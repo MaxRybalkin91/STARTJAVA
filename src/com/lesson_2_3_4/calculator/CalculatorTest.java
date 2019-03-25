@@ -2,21 +2,24 @@ package com.lesson_2_3_4.calculator;
 
 import java.util.Scanner;
 class CalculatorTest {
-    public static void main(String[] args) {
-        char answer;
 
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
         Calculator calculator = new Calculator();
+        String answer;
 
         do {
-            System.out.println("Введите первое число, символ математической операции и второе число:");
-            calculator.calculate();
+            System.out.println("Введите первое число, символ математической операции и второе число(через пробелы):");
+            String equation = scan.nextLine();
+            calculator.calculate(equation);
+            System.out.println(calculator.calculate(equation));
 
             do {
-                System.out.println("\n" + "Хотите продолжить? y/n");
-                answer = input.next().charAt(0);
-            } while (answer != 'n' && answer != 'y');
-        } while (answer != 'n');
+                System.out.println("Хотите продолжить? Д/Н");
+                answer = scan.nextLine();
+            } while (answer.charAt(0) != 'Д' && answer.charAt(0) != 'Н');
+        } while (answer.charAt(0) != 'Н');
 
         System.out.println("Работа калькулятора завершена");
     }
