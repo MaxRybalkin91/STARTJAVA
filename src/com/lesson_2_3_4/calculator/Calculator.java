@@ -1,13 +1,20 @@
 package com.lesson_2_3_4.calculator;
 
 class Calculator {
+    private int firstNumber;
+    private String operation;
+    private int secondNumber;
     private String result;
 
-    public String calculate(String calculation) {
+    private void setEquation(String calculation) {
         String[] parts = calculation.split(" ");
-        int firstNumber = Integer.parseInt(parts[0]);
-        String operation = parts[1];
-        int secondNumber = Integer.parseInt(parts[2]);
+        firstNumber = Integer.parseInt(parts[0]);
+        operation = parts[1];
+        secondNumber = Integer.parseInt(parts[2]);
+    }
+
+    public String calculate(String calculation) {
+        setEquation(calculation);
 
         switch (operation) {
             case "+":
@@ -30,7 +37,7 @@ class Calculator {
                 result = "" + (Math.IEEEremainder(firstNumber, secondNumber));
                 break;
             case "^":
-                result = "" + ((double) Math.pow(firstNumber, secondNumber));
+                result = "" + (Math.pow(firstNumber, secondNumber));
                 break;
             default:
                 result = "Вы ввели отсутствующую операцию!";

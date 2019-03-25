@@ -4,7 +4,6 @@ import java.util.Scanner;
 class CalculatorTest {
 
     public static void main(String[] args) {
-
         Scanner scan = new Scanner(System.in);
         Calculator calculator = new Calculator();
         String answer;
@@ -12,7 +11,6 @@ class CalculatorTest {
         do {
             System.out.println("Введите первое число, символ математической операции и второе число(через пробелы):");
             String equation = scan.nextLine();
-            calculator.calculate(equation);
             System.out.println(calculator.calculate(equation));
 
             do {
