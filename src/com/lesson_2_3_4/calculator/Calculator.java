@@ -6,13 +6,6 @@ class Calculator {
     private int secondNumber;
     private String result;
 
-    private void setEquation(String calculation) {
-        String[] parts = calculation.split(" ");
-        firstNumber = Integer.parseInt(parts[0]);
-        operation = parts[1];
-        secondNumber = Integer.parseInt(parts[2]);
-    }
-
     public String calculate(String calculation) {
         setEquation(calculation);
 
@@ -43,5 +36,12 @@ class Calculator {
                 result = "Вы ввели отсутствующую операцию!";
         }
         return result;
+    }
+
+    private void setEquation(String calculation) {
+        String[] parts = calculation.split(" ");
+        firstNumber = Integer.parseInt(parts[0]);
+        operation = parts[1];
+        secondNumber = Integer.parseInt(parts[2]);
     }
 }

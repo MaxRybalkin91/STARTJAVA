@@ -14,6 +14,7 @@ public class GuessNumberTest {
 
         do {
             System.out.println("Компьютер загадал число в диапазоне 0-100. Попробуйте его угадать!");
+            System.out.println("У вас 10 попыток!");
 
             GuessNumber guessNumber = new GuessNumber(player1, player2, (int) (Math.random() * 101));
             guessNumber.startGame();
