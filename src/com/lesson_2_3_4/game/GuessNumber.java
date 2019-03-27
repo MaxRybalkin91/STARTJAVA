@@ -20,17 +20,14 @@ public class GuessNumber {
         while(count < 10) {
             System.out.println(player1.getName() + " , введите ваш ответ:");
             enterNumber(player1, count);
-
             validateNumber(player1);
-
             if (numberTrue(player1)) {
                 break;
             }
+            
             System.out.println(player2.getName() + " , введите ваш ответ:");
-
             enterNumber(player2, count);
             validateNumber(player2);
-
             if (numberTrue(player2)) {
                 break;
             }
