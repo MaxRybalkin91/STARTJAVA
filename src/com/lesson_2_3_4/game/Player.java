@@ -1,6 +1,7 @@
 package com.lesson_2_3_4.game;
 
 import java.util.Arrays;
+
 class Player {
     private String name;
     private int number;
