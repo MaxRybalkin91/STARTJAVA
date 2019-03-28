@@ -8,6 +8,7 @@ public class GuessNumberTest {
 
         System.out.println("Введите имя первого игрока:");
         Player player1 = new Player(input.nextLine());
+
         System.out.println("Введите имя второго игрока:");
         Player player2 = new Player(input.nextLine());
 
@@ -16,7 +17,7 @@ public class GuessNumberTest {
             System.out.println("У вас 10 попыток!");
 
             GuessNumber guessNumber = new GuessNumber(player1, player2, (int) (Math.random() * 101));
-            guessNumber.startGame();
+            guessNumber.startGame(player1, player2);
 
             do {
                 System.out.println("Хотите повторить? y/n");

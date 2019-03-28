@@ -1,10 +1,8 @@
 package com.lesson_2_3_4.game;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class GuessNumber {
-    private Scanner input = new Scanner(System.in);
     private Player player1;
     private Player player2;
     private int randomNumber;
@@ -16,42 +14,35 @@ public class GuessNumber {
         this.randomNumber = randomNumber;
     }
 
-    public void startGame() {
+    public void startGame(Player player1, Player player2) {
         while(count < 10) {
-            System.out.println(player1.getName() + " , введите ваш ответ:");
-            enterNumber(player1, count);
-            validateNumber(player1);
-            if (numberTrue(player1)) {
+            setAndValidate(player1);
+            if(player1.getNumber() == randomNumber) {
                 break;
             }
-            
-            System.out.println(player2.getName() + " , введите ваш ответ:");
-            enterNumber(player2, count);
-            validateNumber(player2);
-            if (numberTrue(player2)) {
-                break;
-            }
-
-            if (loose()) {
-                break;
-            }
+            setAndValidate(player2);
             count++;
         }
-    }
 
-    private void enterNumber(Player player, int element) {
-        int enteredNumber = input.nextInt();
-        player.setNumber(enteredNumber);
-        player.getInputNumbers()[element] = enteredNumber;
-    }
-
-    private void validateNumber(Player player) {
-        while (player.getNumber() < 0 || player.getNumber() > 100 ) {
-            System.out.println(player.getName() + " , ошибка! Необходимо ввести число в диапазоне 0-100!");
-            player.setNumber(input.nextInt());
+        if(count == 10) {
+            stopTrying();
         }
 
-        if (player.getNumber() < randomNumber) {
+        stopTheGame(player1);
+        stopTheGame(player2);
+        resetNumbers();
+    }
+
+    private void setAndValidate(Player player) {
+        System.out.println(player.getName() + " , введите ваш ответ:");
+        player.setInputNumbers(player, count);
+
+        while(player.getNumber() < 0 || player.getNumber() > 100) {
+            System.out.println(player.getName() + " , ошибка! Необходимо ввести число в диапазоне 0-100!");
+            player.setInputNumbers(player, count);
+        }
+
+        if(player.getNumber() < randomNumber) {
             System.out.println(player.getName() + " , неверно! Введенное число меньше загаданного!");
         } else if (player.getNumber() > randomNumber) {
             System.out.println(player.getName() + " , неверно! Введенное число больше загаданного!");
@@ -60,39 +51,18 @@ public class GuessNumber {
         }
     }
 
-    private boolean numberTrue(Player player) {
-        if (player.getNumber() == randomNumber) {
-            System.out.println(player1.getName() + " ввёл следующие числа:");
-            printArray(player1.getInputNumbers());
-            player1.resetArray();
-            System.out.println(player2.getName() + " ввёл следующие числа:");
-            printArray(player2.getInputNumbers());
-            player1.resetArray();
-
-            return true;
-        } else {
-            return false;
-        }
+    private void stopTrying() {
+        System.out.println(player1.getName() + " и " + player2.getName() + ", вы исчерпали все попытки!");
     }
 
-    private void printArray(int[] arr) {
-        int[] numbers = Arrays.copyOf(arr, count);
-        System.out.println(Arrays.toString(numbers));
+    private void stopTheGame(Player player) {
+        int[] arr = player.getInputNumbers(count);
+        System.out.println(player.getName() + ", ваши предыдущие ответы:");
+        System.out.println(Arrays.toString(arr));
     }
 
-    private boolean loose() {
-        if (count == 10) {
-            System.out.println(player1.getName() + " и " + player2.getName() + " вы исчерпали все попытки!");
-            System.out.println(player1.getName() + " ввёл следующие числа:");
-            printArray(player1.getInputNumbers());
-            player1.resetArray();
-            System.out.println(player2.getName() + " ввёл следующие числа:");
-            printArray(player2.getInputNumbers());
-            player2.resetArray();
-
-            return true;
-        } else {
-            return false;
-        }
+    private void resetNumbers() {
+        player1.resetArray(count);
+        player2.resetArray(count);
     }
 }
