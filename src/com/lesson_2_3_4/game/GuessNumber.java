@@ -25,7 +25,7 @@ public class GuessNumber {
         }
 
         if(count == 10) {
-            stopTrying();
+            System.out.println(player1.getName() + " и " + player2.getName() + ", вы исчерпали все попытки!");
         }
 
         stopTheGame(player1);
@@ -51,13 +51,9 @@ public class GuessNumber {
         }
     }
 
-    private void stopTrying() {
-        System.out.println(player1.getName() + " и " + player2.getName() + ", вы исчерпали все попытки!");
-    }
-
     private void stopTheGame(Player player) {
         int[] arr = player.getInputNumbers(count);
-        System.out.println(player.getName() + ", ваши предыдущие ответы:");
+        System.out.println(player.getName() + ", ваши ответы:");
         System.out.println(Arrays.toString(arr));
     }
 
