@@ -69,13 +69,13 @@ public class GuessNumber {
     }
 
     private void printAnswers(Player player) {
-        int[] arr = player.getInputNumbers(attemptsQuantity);
+        int[] arr = player.getInputNumbers((attemptsQuantity+1));
         System.out.println(player.getName() + ", ваши ответы:");
         System.out.println(Arrays.toString(arr));
     }
 
     private void resetNumbers() {
-        player1.resetArray(attemptsQuantity);
-        player2.resetArray(attemptsQuantity);
+        player1.resetArray((attemptsQuantity+1));
+        player2.resetArray((attemptsQuantity+1));
     }
 }
