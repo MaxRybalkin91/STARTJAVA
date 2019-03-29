@@ -18,20 +18,15 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        while(attemptsQuantity < 10 ) {
+        System.out.println(randomNumber);
+        while(attemptsQuantity < 10 && player1.getNumber() != randomNumber & player2.getNumber() != randomNumber) {
             setAnswer(player1);
             validateRange(player1);
             validateAnswer(player1);
-            if(player1.getNumber() == randomNumber) {
-                break;
-            }
 
             setAnswer(player2);
             validateRange(player2);
             validateAnswer(player2);
-            if(player2.getNumber() == randomNumber) {
-                break;
-            }
 
             attemptsQuantity++;
         }
@@ -69,13 +64,13 @@ public class GuessNumber {
     }
 
     private void printAnswers(Player player) {
-        int[] arr = player.getInputNumbers((attemptsQuantity+1));
+        int[] arr = player.getInputNumbers(attemptsQuantity);
         System.out.println(player.getName() + ", ваши ответы:");
         System.out.println(Arrays.toString(arr));
     }
 
     private void resetNumbers() {
-        player1.resetArray((attemptsQuantity+1));
-        player2.resetArray((attemptsQuantity+1));
+        player1.resetArray(attemptsQuantity);
+        player2.resetArray(attemptsQuantity);
     }
 }
