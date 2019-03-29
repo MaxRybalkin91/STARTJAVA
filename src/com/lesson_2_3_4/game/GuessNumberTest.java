@@ -1,6 +1,7 @@
 package com.lesson_2_3_4.game;
 
 import java.util.Scanner;
+
 public class GuessNumberTest {
     public static void main(String[] args) {
         char answer;
@@ -17,7 +18,7 @@ public class GuessNumberTest {
             System.out.println("У вас 10 попыток!");
 
             GuessNumber guessNumber = new GuessNumber(player1, player2, (int) (Math.random() * 101));
-            guessNumber.startGame(player1, player2);
+            guessNumber.startGame();
 
             do {
                 System.out.println("Хотите повторить? y/n");
