@@ -18,16 +18,21 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        while(attemptsQuantity < 10) {
+        while(attemptsQuantity < 10 ) {
             setAnswer(player1);
             validateRange(player1);
             validateAnswer(player1);
             if(player1.getNumber() == randomNumber) {
                 break;
             }
+
             setAnswer(player2);
             validateRange(player2);
             validateAnswer(player2);
+            if(player2.getNumber() == randomNumber) {
+                break;
+            }
+
             attemptsQuantity++;
         }
 
