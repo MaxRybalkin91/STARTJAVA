@@ -7,7 +7,6 @@ public class GuessNumber {
     Scanner input = new Scanner(System.in);
     private Player player1;
     private Player player2;
-    private int enteredNumber;
     private int randomNumber;
     private int attemptsQuantity = 0;
 
@@ -18,12 +17,16 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        while(attemptsQuantity < 10 && player1.getNumber() != randomNumber & player2.getNumber() != randomNumber) {
-            setAnswer(player1);
+        System.out.println(randomNumber);
+        while(attemptsQuantity < 10 && player2.getNumber() != randomNumber) {
+            inputPlayerAnswer(player1);
             validateRange(player1);
             validateAnswer(player1);
+            if(player1.getNumber() == randomNumber) {
+                break;
+            }
 
-            setAnswer(player2);
+            inputPlayerAnswer(player2);
             validateRange(player2);
             validateAnswer(player2);
 
@@ -39,17 +42,17 @@ public class GuessNumber {
         resetNumbers();
     }
 
+    private void inputPlayerAnswer(Player player) {
+        System.out.println(player.getName() + " , введите ваш ответ:");
+        player.setNumber(input.nextInt());
+    }
+
     private void validateRange(Player player) {
         while (player.getNumber() < 0 || player.getNumber() > 100) {
             System.out.println(player.getName() + " , ошибка! Необходимо ввести число в диапазоне 0-100!");
-            setAnswer(player);
+            player.setNumber(input.nextInt());
         }
-    }
-
-    private void setAnswer(Player player) {
-        System.out.println(player.getName() + " , введите ваш ответ:");
-        enteredNumber = input.nextInt();
-        player.setInputNumbers(enteredNumber, attemptsQuantity);
+        player.setInputNumbers(player.getNumber(), attemptsQuantity);
     }
 
     private void validateAnswer(Player player) {
@@ -63,9 +66,9 @@ public class GuessNumber {
     }
 
     private void printAnswers(Player player) {
-        int[] arr = player.getInputNumbers(attemptsQuantity);
+        int[] playerAnswers = player.getInputNumbers(attemptsQuantity);
         System.out.println(player.getName() + ", ваши ответы:");
-        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(playerAnswers));
     }
 
     private void resetNumbers() {

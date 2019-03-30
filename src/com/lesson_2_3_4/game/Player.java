@@ -15,6 +15,14 @@ class Player {
         return name;
     }
 
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
     public void setInputNumbers(int enteredNumber, int element) {
         number = enteredNumber;
         inputNumbers[element] = number;
@@ -22,10 +30,6 @@ class Player {
 
     public int[] getInputNumbers(int element) {
         return Arrays.copyOf(inputNumbers, element);
-    }
-
-    public int getNumber() {
-        return number;
     }
 
     public void resetArray(int element) {
