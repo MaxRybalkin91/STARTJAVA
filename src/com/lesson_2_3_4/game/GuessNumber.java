@@ -17,7 +17,6 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        System.out.println(randomNumber);
         while(attemptsQuantity < 10) {
             prepareValidation(player1);
             if(player1.getNumber() == randomNumber) {
