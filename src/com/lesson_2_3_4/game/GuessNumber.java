@@ -67,7 +67,7 @@ public class GuessNumber {
 
     private void printAnswers(Player player) {
         if(attemptsQuantity == 0) {
-            attemptsQuantity = 1;
+            attemptsQuantity++;
         }
 
         int[] playerAnswers = player.getInputNumbers(attemptsQuantity);
