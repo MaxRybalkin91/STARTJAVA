@@ -66,13 +66,11 @@ public class GuessNumber {
     }
 
     private void printAnswers(Player player) {
-        int[] playerAnswers;
         if(attemptsQuantity == 0) {
-            playerAnswers = player.getInputNumbers((attemptsQuantity+1));
-        } else {
-            playerAnswers = player.getInputNumbers(attemptsQuantity);
+            attemptsQuantity = 1;
         }
 
+        int[] playerAnswers = player.getInputNumbers(attemptsQuantity);
         System.out.println(player.getName() + ", ваши ответы:");
         System.out.println(Arrays.toString(playerAnswers));
     }
