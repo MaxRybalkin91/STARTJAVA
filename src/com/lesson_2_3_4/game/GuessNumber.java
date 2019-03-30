@@ -17,6 +17,7 @@ public class GuessNumber {
     }
 
     public void startGame() {
+        System.out.println(randomNumber);
         while(attemptsQuantity < 10 && player2.getNumber() != randomNumber) {
             inputPlayerAnswer(player1);
             validateRange(player1);
@@ -66,7 +67,13 @@ public class GuessNumber {
     }
 
     private void printAnswers(Player player) {
-        int[] playerAnswers = player.getInputNumbers(attemptsQuantity);
+        int[] playerAnswers;
+        if(attemptsQuantity == 0) {
+            playerAnswers = player.getInputNumbers((attemptsQuantity+1));
+        } else {
+            playerAnswers = player.getInputNumbers(attemptsQuantity);
+        }
+
         System.out.println(player.getName() + ", ваши ответы:");
         System.out.println(Arrays.toString(playerAnswers));
     }
