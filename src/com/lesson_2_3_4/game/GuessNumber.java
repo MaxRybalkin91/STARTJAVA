@@ -52,6 +52,7 @@ public class GuessNumber {
             System.out.println(player.getName() + " , ошибка! Необходимо ввести число в диапазоне 0-100!");
             player.setNumber(input.nextInt());
         }
+
         player.setInputNumbers(player.getNumber(), attemptsQuantity);
     }
 
