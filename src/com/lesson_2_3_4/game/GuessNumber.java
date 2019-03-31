@@ -18,7 +18,6 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        System.out.println(randomNumber);
         while(attemptsQuantity < 10 && isContinue) {
             prepareValidation(player1);
             isGameContinue(player1);
