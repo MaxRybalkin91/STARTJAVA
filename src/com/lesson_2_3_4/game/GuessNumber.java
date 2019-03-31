@@ -18,13 +18,12 @@ public class GuessNumber {
     }
 
     public void startGame() {
+        System.out.println(randomNumber);
         while(attemptsQuantity < 10 && isContinue) {
             prepareValidation(player1);
-            isGameContinue(player1);
 
             if(isContinue) {
                 prepareValidation(player2);
-                isGameContinue(player2);
             }
 
             attemptsQuantity++;
@@ -43,13 +42,6 @@ public class GuessNumber {
         inputPlayerAnswer(player);
         validateRange(player);
         validateAnswer(player);
-    }
-
-    private boolean isGameContinue(Player player) {
-        if(player.getNumber() == randomNumber) {
-            isContinue = false;
-        }
-        return isContinue;
     }
 
     private void inputPlayerAnswer(Player player) {
@@ -73,6 +65,7 @@ public class GuessNumber {
             System.out.println(player.getName() + " , неверно! Введенное число больше загаданного!");
         } else {
             System.out.println(player.getName() + " , вы угадали число " + randomNumber + " с " + (attemptsQuantity + 1) + " попытки!");
+            isContinue = false;
         }
     }
 
