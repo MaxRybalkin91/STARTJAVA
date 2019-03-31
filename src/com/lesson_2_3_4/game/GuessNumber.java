@@ -9,6 +9,7 @@ public class GuessNumber {
     private Player player2;
     private int randomNumber;
     private int attemptsQuantity = 0;
+    private boolean isContinue = true;
 
     public GuessNumber(Player player1, Player player2, int randomNumber) {
         this.player1 = player1;
@@ -17,15 +18,14 @@ public class GuessNumber {
     }
 
     public void startGame() {
-        while(attemptsQuantity < 10) {
+        System.out.println(randomNumber);
+        while(attemptsQuantity < 10 && isContinue) {
             prepareValidation(player1);
-            if(player1.getNumber() == randomNumber) {
-                break;
-            }
+            isGameContinue(player1);
 
-            prepareValidation(player2);
-            if(player2.getNumber() == randomNumber) {
-                break;
+            if(isContinue) {
+                prepareValidation(player2);
+                isGameContinue(player2);
             }
 
             attemptsQuantity++;
@@ -44,6 +44,13 @@ public class GuessNumber {
         inputPlayerAnswer(player);
         validateRange(player);
         validateAnswer(player);
+    }
+
+    private boolean isGameContinue(Player player) {
+        if(player.getNumber() == randomNumber) {
+            isContinue = false;
+        }
+        return isContinue;
     }
 
     private void inputPlayerAnswer(Player player) {

@@ -29,7 +29,6 @@ class Player {
     }
 
     public int[] getInputNumbers(int element) {
-        element++;
         return Arrays.copyOf(inputNumbers, element);
     }
 
